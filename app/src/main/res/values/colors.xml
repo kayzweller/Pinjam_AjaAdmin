@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#271431</color>
+
+    <!-- here my costum color -->
+    <color name="text_main">#FDD462</color>
+    <color name="text_secondary">#FFFDE7</color>
+    <color name="text_tertier">#271431</color>
+
+    <!-- version 0.1.1 -->
+    <color name="color_button">#00000000</color>
+
+</resources>

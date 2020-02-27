@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pinjam Aja! ADMIN</string>
+    <string name="logo">logo admin</string>
+    <string name="text_login_1">MASUK ADMIN</string>
+    <string name="text_login_2">SILAHKAN LOGIN UNTUK MENGELOLA TRANSAKSI</string>
+    <string name="button_login">LOGIN</string>
+    <string name="textinputedit_email">Email</string>
+    <string name="textinputedit_password">Password</string>
+    <string name="version">Version 0.1.0</string>
+
+    <string name="instructions">Letakan jari Anda pada pemindai sidik jari untuk melanjutkan</string>
+</resources>
