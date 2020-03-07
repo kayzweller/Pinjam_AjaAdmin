@@ -22,6 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     //deklarasi variabel
@@ -59,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     //-------------------------------------------------------------------------------------------//
 
     private Boolean validateEmail() {
-        String val = mEmailInput.getEditText().getText().toString();
+        String val = Objects.requireNonNull(mEmailInput.getEditText()).getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z.-]+\\.[a-z]+";
 
         if (val.isEmpty()) {
@@ -75,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Boolean validatePassword() {
-        String val = mPasswordInput.getEditText().getText().toString();
+        String val = Objects.requireNonNull(mPasswordInput.getEditText()).getText().toString();
 
         if (val.isEmpty()) {
             mPasswordInput.setError("Masukan password Anda!");
@@ -92,28 +94,35 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        String email = mEmailInput.getEditText().getText().toString();
-        String password = mPasswordInput.getEditText().getText().toString();
+        String email = Objects.requireNonNull(mEmailInput.getEditText()).getText().toString();
+        String password = Objects.requireNonNull(mPasswordInput.getEditText()).getText().toString();
 
         mAuth.signInWithEmailAndPassword(email, password).
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        // TODO : ADD LOGIN VERIFICATION
-                        //  DOES THE ACCOUNT HAVE A ADMIN LEVEL ACCESS?
-                        //  >> mUserType value called from user database in firestore
-                        //  if statement -- [task.isSucessful() && mUserType == "ADMIN"]
+                        String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                        String keyAdmin = "(vNSDP534cgPHAbqocLjJmgQm68d2)";
 
                         if (task.isSuccessful()) {
-                            //user successfully  login
-                            Intent loginActivity = new Intent(LoginActivity.
-                                    this, BioAuthActivity.class);
-                            startActivity(loginActivity);
-                            finish();
+
+                            if (userID.matches(keyAdmin)) {
+                                Toast.makeText(getApplicationContext(), "LOGIN BERHASIL!",
+                                        Toast.LENGTH_SHORT).show();
+                                Intent loginActivity = new Intent(LoginActivity.
+                                        this, BioAuthActivity.class);
+                                startActivity(loginActivity);
+                                finish();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Anda Tidak Memiliki Hak Akses Admin!",
+                                        Toast.LENGTH_LONG).show();
+                            }
+
                         } else {
-                            Toast.makeText(getApplicationContext(), task.getException().
-                                            getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), Objects
+                                    .requireNonNull(task.getException()).getMessage(),
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
 
