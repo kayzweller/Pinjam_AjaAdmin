@@ -59,8 +59,8 @@ public class DashboardActivity extends AppCompatActivity {
                     }
 
                     if (selectedFragment != null) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace
+                                (R.id.fragment_container, selectedFragment).commit();
                     }
 
                     return true;
