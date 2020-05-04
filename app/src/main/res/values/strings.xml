@@ -9,4 +9,8 @@
     <string name="version">Version 0.1.0</string>
 
     <string name="instructions">Letakan jari Anda pada pemindai sidik jari untuk melanjutkan</string>
+    <string name="fund_request">Request</string>
+    <string name="fund_approval">Approval</string>
+    <string name="fund_return">Return</string>
+    <string name="fund_admin">Admin</string>
 </resources>

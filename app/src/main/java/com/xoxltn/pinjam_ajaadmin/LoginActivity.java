@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020 Albert Kristaen (DBC 113 008)
- * ONLY USE UNDER PERMISSION -OR- I AM GONNA CHOP YOUR HANDS OFF!
- */
-
 package com.xoxltn.pinjam_ajaadmin;
 
 import androidx.annotation.NonNull;
@@ -13,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +17,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
@@ -28,10 +25,13 @@ public class LoginActivity extends AppCompatActivity {
 
     //deklarasi variabel
     TextInputLayout mEmailInput, mPasswordInput;
-    Button mLoginButton;
+    Button mMasukButton;
+    ProgressBar mProgressBar;
 
     //deklarasi firebase
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mFire;
+    private FirebaseUser mFireUser;
 
     //-------------------------------------------------------------------------------------------//
 
@@ -43,10 +43,12 @@ public class LoginActivity extends AppCompatActivity {
         //hooks
         mEmailInput = findViewById(R.id.login_email);
         mPasswordInput = findViewById(R.id.login_password);
-        mLoginButton = findViewById(R.id.login_button);
+        mMasukButton = findViewById(R.id.login_button);
+        mProgressBar = findViewById(R.id.progress_bar_loading);
 
         mAuth = FirebaseAuth.getInstance();
-
+        mFireUser = mAuth.getCurrentUser();
+        mFire = FirebaseFirestore.getInstance();
     }
 
     //-------------------------------------------------------------------------------------------//
@@ -54,8 +56,23 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and TODO : update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        mProgressBar.setMax(100);
+        mProgressBar.setAlpha(0f);
+        mProgressBar.setProgress(0);
+
+        executeAutoLogin();
+    }
+
+    //-------------------------------------------------------------------------------------------//
+
+    private void executeAutoLogin() {
+        if (mFireUser != null) {
+            progressBarLoad();
+            Intent bioActivity = new Intent(this, DashboardActivity.class);
+            startActivity(bioActivity);
+            finish();
+        }
     }
 
     //-------------------------------------------------------------------------------------------//
@@ -90,7 +107,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginButtonClick(View v) {
 
+        progressBarLoad();
+
         if (!validateEmail() | !validatePassword()) {
+            progressBarUnload();
             return;
         }
 
@@ -108,18 +128,22 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             if (userID.matches(keyAdmin)) {
+                                progressBarUnload();
                                 Toast.makeText(getApplicationContext(), "LOGIN BERHASIL!",
                                         Toast.LENGTH_SHORT).show();
-                                Intent loginActivity = new Intent(LoginActivity.
-                                        this, BioAuthActivity.class);
-                                startActivity(loginActivity);
+                                Intent bioActivity = new Intent(LoginActivity.
+                                        this, DashboardActivity.class);
+                                startActivity(bioActivity);
                                 finish();
                             } else {
-                                Toast.makeText(getApplicationContext(), "Anda Tidak Memiliki Hak Akses Admin!",
+                                progressBarUnload();
+                                Toast.makeText(getApplicationContext(),
+                                        "Anda Tidak Memiliki Hak Akses Admin!",
                                         Toast.LENGTH_LONG).show();
                             }
 
                         } else {
+                            progressBarUnload();
                             Toast.makeText(getApplicationContext(), Objects
                                     .requireNonNull(task.getException()).getMessage(),
                                     Toast.LENGTH_SHORT).show();
@@ -128,6 +152,22 @@ public class LoginActivity extends AppCompatActivity {
 
                 });
 
+    }
+
+    //-------------------------------------------------------------------------------------------//
+
+    private void progressBarLoad() {
+        mProgressBar.setAlpha(1.0f);
+        mProgressBar.setProgress(100);
+
+        mMasukButton.setEnabled(false);
+    }
+
+    private void progressBarUnload() {
+        mProgressBar.setAlpha(0f);
+        mProgressBar.setProgress(0);
+
+        mMasukButton.setEnabled(true);
     }
 
     //-------------------------------------------------------------------------------------------//

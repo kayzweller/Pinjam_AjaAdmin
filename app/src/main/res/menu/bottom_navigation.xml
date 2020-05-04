@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fund_request"
+        android:icon="@drawable/ic_fund_request"
+        android:title="@string/fund_request"/>
+
+    <item
+        android:id="@+id/fund_approval"
+        android:icon="@drawable/ic_fund_approval"
+        android:title="@string/fund_approval"/>
+
+    <item
+        android:id="@+id/fund_return"
+        android:icon="@drawable/ic_fund_return"
+        android:title="@string/fund_return"/>
+
+    <item
+        android:id="@+id/fund_admin"
+        android:icon="@drawable/ic_fund_admin"
+        android:title="@string/fund_admin"/>
+
+</menu>
