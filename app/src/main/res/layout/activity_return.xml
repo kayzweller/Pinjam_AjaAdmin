@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_grey"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme"
+    tools:context=".sub_menu.ReturnActivity">
+
+    <LinearLayout
+        android:paddingTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:onClick="buttonBackArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:layout_margin="4dp"
+            android:background="#00FFFFFF"
+            android:scaleType="center"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:contentDescription="BackButton"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pembayaran Cicilan."
+            android:fontFamily="@font/fira_sans_bold"
+            android:textSize="24sp"
+            android:textColor="@color/text_tertier"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:outlineProvider="paddedBounds"
+                        android:padding="8dp"
+                        android:stretchColumns="1">
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Detail Pinjaman"
+                                android:textColor="@color/text_tertier"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="ID Pinjaman"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_id_pinjaman"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Besar Pinjaman"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_besar_pinjaman"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Total Kembali"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_total_kembali"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Tanggal Pendanaan"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_tgl_pendanaan"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Tahap Pinjaman"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_tahap_pinjaman"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Tgl. Jatuh Tempo"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_tgl_tempo"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Tgl. Transfer"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_tgl_transfer"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+
+                        <TableRow android:paddingTop="8dp">
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Detail User"
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Nama Pendana"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_nama_pendana"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="ID Pendana"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_id_pendana"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Nama Peminjam"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_nama_peminjam"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="ID Peminjam"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_id_peminjam"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+
+                        <TableRow android:paddingTop="8dp">
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Detail Pembayaran"
+                                android:textColor="@color/text_tertier"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Nama Holder"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_holder_peminjam"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="No. Rek Peminjam"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_rek_peminjam"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Nominal Transfer"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_nominal_transfer"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Pokok (+20%)"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_pokok_cicilan"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Denda"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_denda"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+
+                        <TableRow android:paddingTop="8dp">
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Detail Pengembalian"
+                                android:textColor="@color/text_tertier"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Nama Holder"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_holder_pendana"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="No. Rek Pendana"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_rek_pendana"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
+                                android:text="Ke Pendana (+15%)"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_ke_pendana"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fira_sans"
+                        android:layout_marginHorizontal="8dp"
+                        android:textSize="12sp"
+                        android:text="Tekan KONFIRMASI TRANSFER ketika Admin menerima transfer di Rekening Escrow, dan sudah mentransfer pengembalian dana ke rekening pendana beserta bunga 15%."
+                        android:textColor="#EF6C00"
+                        android:textAlignment="textStart" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button_round_bg"
+                        android:fontFamily="@font/fira_sans_bold"
+                        android:onClick="onClickKonfirmasiTransfer"
+                        android:paddingHorizontal="16dp"
+                        android:text="KONFIRMASI TRANSFER"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

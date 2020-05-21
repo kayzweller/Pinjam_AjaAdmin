@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_return"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardBackgroundColor="@color/type3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/coin"
+            android:contentDescription="return"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_tahap_pinjaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fira_sans_bold"
+                android:text="loading..."
+                android:textAlignment="center"
+                android:textColor="@color/text_tertier"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/fira_sans_bold_italic"
+                android:text="Tanggal Bayar Cicilan :"
+                android:textAlignment="center"
+                android:textColor="@color/unselected"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/text_tanggal_bayar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fira_sans_bold"
+                android:text="loading..."
+                android:textAlignment="center"
+                android:textColor="@color/text_tertier"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_nominal_pinjaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fira_sans_bold_italic"
+                android:text="loading..."
+                android:textAlignment="center"
+                android:textColor="@color/text_tertier"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fira_sans_bold_italic"
+                android:text="Tap untuk melihat detail pinjaman..."
+                android:textAlignment="center"
+                android:textColor="@color/unselected"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

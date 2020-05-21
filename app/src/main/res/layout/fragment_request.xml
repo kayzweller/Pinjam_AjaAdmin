@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:measureAllChildren="true"
     android:background="@color/transparent"
-    android:padding="16dp"
-    android:orientation="vertical">
-    
+    android:paddingTop="16dp"
+    android:paddingHorizontal="8dp"
+    tools:context=".view_fragment.RequestFragment">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fira_sans_bold_italic"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/fira_sans_bold"
+        android:text="Permintaan Pinjaman."
+        android:textAlignment="center"
+        android:textColor="@color/text_tertier"
         android:textSize="24sp"
-        android:text="request fragment"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_fund_request"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

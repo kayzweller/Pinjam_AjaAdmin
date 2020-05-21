@@ -15,10 +15,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.xoxltn.pinjam_ajaadmin.fragment.AdminFragment;
-import com.xoxltn.pinjam_ajaadmin.fragment.ApprovalFragment;
-import com.xoxltn.pinjam_ajaadmin.fragment.RequestFragment;
-import com.xoxltn.pinjam_ajaadmin.fragment.ReturnFragment;
+
+import com.xoxltn.pinjam_ajaadmin.view_fragment.AdminFragment;
+import com.xoxltn.pinjam_ajaadmin.view_fragment.ApprovalFragment;
+import com.xoxltn.pinjam_ajaadmin.view_fragment.RequestFragment;
+import com.xoxltn.pinjam_ajaadmin.view_fragment.ReturnFragment;
 
 
 public class DashboardActivity extends AppCompatActivity {
@@ -30,7 +31,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(mOnNavListener);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new RequestFragment()).commit();
     }
