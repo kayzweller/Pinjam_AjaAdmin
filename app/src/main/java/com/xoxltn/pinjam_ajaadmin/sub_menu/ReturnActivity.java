@@ -27,6 +27,7 @@ public class ReturnActivity extends AppCompatActivity {
 
     private NumberFormat formatter;
 
+
     private String mDocName, mDocPath;
     private DocumentReference mDocRef;
 
@@ -35,11 +36,11 @@ public class ReturnActivity extends AppCompatActivity {
     private TextView mTextNamaPendana, mTextIDPendana, mTextNamaPeminjam, mTextIDPeminjam;
     private TextView mTextHolderPeminjam, mTextRekPeminjam, mTextNominalTransfer,
             mTextPokok, mTextDenda;
-    private TextView mTextHolderPendana, mTextRekPendana, mTextTransferKePendana;
+    private TextView mTextTotalTerbayar, mTextHolderPendana, mTextRekPendana, mTextTransferKePendana;
 
     private String mIDPeminjam;
     private String mIDPendana;
-    private int mTahap;
+    private int mTahap, mTransfer, mTerbayar;
 
     private Date mTempo1, mTempo2;
 
@@ -76,6 +77,7 @@ public class ReturnActivity extends AppCompatActivity {
         mTextIDPendana = findViewById(R.id.text_id_pendana);
         mTextNamaPeminjam = findViewById(R.id.text_nama_peminjam);
         mTextIDPeminjam = findViewById(R.id.text_id_peminjam);
+        mTextTotalTerbayar = findViewById(R.id.text_total_terbayar);
         mTextHolderPeminjam = findViewById(R.id.text_holder_peminjam);
         mTextRekPeminjam = findViewById(R.id.text_rek_peminjam);
         mTextNominalTransfer = findViewById(R.id.text_nominal_transfer);
@@ -188,11 +190,18 @@ public class ReturnActivity extends AppCompatActivity {
                     mIDPeminjam = doc.getString("id_peminjam");
                     mTextIDPeminjam.setText(mIDPeminjam);
 
+                    // pengembalian cicilan akumulasi
+                    Long c_terbayar = doc.getLong("pinjaman_terbayar");
+                    assert c_terbayar != null;
+                    mTerbayar = Math.toIntExact(c_terbayar);
+                    String l_terbayar = formatter.format(mTerbayar);
+                    mTextTotalTerbayar.setText(l_terbayar);
+
                     // nominal transfer
                     Long c_transfer = doc.getLong("pinjaman_transfer");
                     assert c_transfer != null;
-                    int transfer = Math.toIntExact(c_transfer);
-                    String l_transfer = formatter.format(transfer);
+                    mTransfer = Math.toIntExact(c_transfer);
+                    String l_transfer = formatter.format(mTransfer);
                     mTextNominalTransfer.setText(l_transfer);
 
                     // denda
@@ -261,6 +270,11 @@ public class ReturnActivity extends AppCompatActivity {
     //-------------------------------------------------------------------------------------------//
 
     public void onClickKonfirmasiTransfer(View view) {
+
+        // akumulasi pembayaran
+        int total_terbayar = mTransfer + mTerbayar;
+        mDocRef.update("pinjaman_terbayar", total_terbayar);
+
         // tahap --> 1 > 2 > 3 > 0 (lunas)
         if (mTahap == 1) {
             mDocRef.update("pinjaman_tahap", 2);

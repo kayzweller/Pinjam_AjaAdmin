@@ -299,7 +299,7 @@
                     android:textAlignment="center"
                     android:fontFamily="@font/fira_sans_bold_italic"
                     android:textSize="24dp"
-                    android:text="Pinjaman Terbayar"
+                    android:text="Total Terbayar"
                     android:textColor="@color/text_tertier" />
 
                 <TextView

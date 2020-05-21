@@ -276,6 +276,22 @@
                             <TextView
                                 android:fontFamily="@font/fira_sans_bold_italic"
                                 android:padding="3dp"
+                                android:text="Total Terbayar"
+                                android:textColor="@color/unselected" />
+
+                            <TextView
+                                android:id="@+id/text_total_terbayar"
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:gravity="end"
+                                android:padding="3dp"
+                                android:text="loading..."
+                                android:textColor="@color/text_tertier" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:fontFamily="@font/fira_sans_bold_italic"
+                                android:padding="3dp"
                                 android:text="Nama Holder"
                                 android:textColor="@color/unselected" />
 
