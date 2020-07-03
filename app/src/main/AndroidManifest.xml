@@ -15,17 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sub_menu.ReturnActivity"></activity>
-        <activity android:name=".sub_menu.DetailPeminjamActivity" />
-        <activity android:name=".sub_menu.DetailPendanaActivity" />
-        <activity android:name=".sub_menu.ApprovalPendanaActivity" />
-        <activity android:name=".sub_menu.ApprovalPeminjamActivity" />
-        <activity android:name=".sub_menu.DetailActivity" />
-        <activity android:name=".sub_menu.ApprovalActivity" />
-        <activity android:name=".sub_menu.RequestPeminjamActivity" />
-        <activity android:name=".sub_menu.RequestActivity" />
-        <activity android:name=".DashboardActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SubmenuReturnActivity"></activity>
+        <activity android:name=".SubmenuDetailPeminjamActivity" />
+        <activity android:name=".SubmenuDetailPendanaActivity" />
+        <activity android:name=".SubmenuApprovalPendanaActivity" />
+        <activity android:name=".SubmenuApprovalPeminjamActivity" />
+        <activity android:name=".SubmenuDetailActivity" />
+        <activity android:name=".SubmenuApprovalActivity" />
+        <activity android:name=".SubmenuRequestPeminjamActivity" />
+        <activity android:name=".SubmenuRequestActivity" />
+        <activity android:name=".MainDashboardActivity" />
+        <activity android:name=".MainLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

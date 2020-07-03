@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.xoxltn.pinjam_ajaadmin</OriginalElement>
+  <nodes>
+    <node x="1610.5" y="1924.0">com.xoxltn.pinjam_ajaadmin.MenuAdminFragment</node>
+    <node x="2813.1666666666665" y="1277.0">com.xoxltn.pinjam_ajaadmin.AdapterRequest</node>
+    <node x="3032.727342549923" y="330.0">com.xoxltn.pinjam_ajaadmin.ModelRequest</node>
+    <node x="2566.5606758832564" y="319.0">com.xoxltn.pinjam_ajaadmin.ModelReturn</node>
+    <node x="577.8333333333333" y="1935.0">com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment</node>
+    <node x="2059.1666666666665" y="869.0">com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity</node>
+    <node x="0.0" y="1277.0">com.xoxltn.pinjam_ajaadmin.AdapterApproval</node>
+    <node x="674.5929147465436" y="924.0">com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity</node>
+    <node x="1179.8751728110594" y="1034.0">com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity</node>
+    <node x="470.25" y="11.0">com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity</node>
+    <node x="1354.25" y="0.0">com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity</node>
+    <node x="1786.625" y="2309.0">com.xoxltn.pinjam_ajaadmin.MainDashboardActivity</node>
+    <node x="3045.833506144393" y="1957.0">com.xoxltn.pinjam_ajaadmin.MenuRequestFragment</node>
+    <node x="1049.25" y="11.0">com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity</node>
+    <node x="1729.1666666666665" y="1133.0">com.xoxltn.pinjam_ajaadmin.MainLoginActivity</node>
+    <node x="3289.958333333333" y="1111.0">com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity</node>
+    <node x="761.25" y="11.0">com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity</node>
+    <node x="2285.94383640553" y="1957.0">com.xoxltn.pinjam_ajaadmin.MenuReturnFragment</node>
+    <node x="3298.833506144393" y="2530.0">com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity</node>
+    <node x="2376.1666666666665" y="1277.0">com.xoxltn.pinjam_ajaadmin.AdapterReturn</node>
+    <node x="154.25" y="319.0">com.xoxltn.pinjam_ajaadmin.ModelApproval</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.xoxltn.pinjam_ajaadmin.AdapterReturn" target="com.xoxltn.pinjam_ajaadmin.ModelReturn">
+      <point x="0.0" y="-79.5" />
+      <point x="2584.1666666666665" y="849.0" />
+      <point x="2687.0606758832564" y="849.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment" target="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment">
+      <point x="-102.25" y="124.5" />
+      <point x="3148.083506144393" y="2226.0" />
+      <point x="3025.833506144393" y="2226.0" />
+      <point x="3025.833506144393" y="2081.5" />
+      <point x="-204.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity">
+      <point x="-96.75" y="399.5" />
+      <point x="1386.5" y="819.0" />
+      <point x="1334.25" y="819.0" />
+      <point x="1334.25" y="399.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity">
+      <point x="86.0" y="-410.5" />
+      <point x="3513.833506144393" y="2510.0" />
+      <point x="3476.333506144393" y="2510.0" />
+      <point x="3476.333506144393" y="1904.0" />
+      <point x="3542.958333333333" y="1904.0" />
+      <point x="115.0" y="245.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity">
+      <point x="-85.0" y="432.5" />
+      <point x="717.0929147465436" y="1809.0" />
+      <point x="654.5929147465436" y="1809.0" />
+      <point x="654.5929147465436" y="1356.5" />
+      <point x="-127.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment" target="com.xoxltn.pinjam_ajaadmin.ModelReturn">
+      <point x="163.59999999999985" y="-124.5" />
+      <point x="2654.04383640553" y="1904.0" />
+      <point x="2802.6666666666665" y="1904.0" />
+      <point x="2802.6666666666665" y="849.0" />
+      <point x="2767.3940092165894" y="849.0" />
+      <point x="80.33333333333326" y="80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity" target="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment">
+      <point x="155.83333333333326" y="-80.5" />
+      <point x="2129.458333333333" y="2289.0" />
+      <point x="3352.583506144393" y="2289.0" />
+      <point x="102.25" y="124.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity">
+      <point x="-88.33333333333337" y="388.5" />
+      <point x="1093.4166666666665" y="808.0" />
+      <point x="1029.25" y="808.0" />
+      <point x="1029.25" y="399.5" />
+      <point x="-132.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity" target="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment">
+      <point x="99.00000000000011" y="487.5" />
+      <point x="2306.6666666666665" y="1894.0" />
+      <point x="2408.64383640553" y="1894.0" />
+      <point x="-81.80000000000007" y="-124.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity">
+      <point x="-86.0" y="-410.5" />
+      <point x="3341.833506144393" y="2510.0" />
+      <point x="2067.125" y="2510.0" />
+      <point x="93.5" y="80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuAdminFragment" target="com.xoxltn.pinjam_ajaadmin.MenuAdminFragment">
+      <point x="-102.25" y="157.5" />
+      <point x="1712.75" y="2259.0" />
+      <point x="1590.5" y="2259.0" />
+      <point x="1590.5" y="2081.5" />
+      <point x="-204.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment" target="com.xoxltn.pinjam_ajaadmin.ModelApproval">
+      <point x="-58.42857142857156" y="-146.5" />
+      <point x="723.9047619047617" y="1884.0" />
+      <point x="454.5" y="1884.0" />
+      <point x="454.5" y="849.0" />
+      <point x="384.25" y="849.0" />
+      <point x="92.0" y="80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity">
+      <point x="69.0" y="245.5" />
+      <point x="3496.958333333333" y="1894.0" />
+      <point x="3465.333506144393" y="1894.0" />
+      <point x="3465.333506144393" y="2510.0" />
+      <point x="3427.833506144393" y="2510.0" />
+      <point x="0.0" y="-410.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity" target="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment">
+      <point x="-155.83333333333348" y="-80.5" />
+      <point x="1817.7916666666665" y="2289.0" />
+      <point x="884.5833333333333" y="2289.0" />
+      <point x="102.25" y="146.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainLoginActivity" target="com.xoxltn.pinjam_ajaadmin.MainLoginActivity">
+      <point x="-96.66666666666669" y="223.5" />
+      <point x="1777.4999999999998" y="1600.0" />
+      <point x="1709.1666666666665" y="1600.0" />
+      <point x="1709.1666666666665" y="1356.5" />
+      <point x="-145.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity" target="com.xoxltn.pinjam_ajaadmin.MenuAdminFragment">
+      <point x="-31.166666666666742" y="-80.5" />
+      <point x="1942.458333333333" y="2289.0" />
+      <point x="1917.25" y="2289.0" />
+      <point x="102.25" y="157.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment" target="com.xoxltn.pinjam_ajaadmin.AdapterRequest">
+      <point x="-102.25" y="-124.5" />
+      <point x="3148.083506144393" y="1904.0" />
+      <point x="3135.6666666666665" y="1904.0" />
+      <point x="107.5" y="79.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity">
+      <point x="31.875" y="-432.5" />
+      <point x="833.9679147465436" y="849.0" />
+      <point x="885.25" y="849.0" />
+      <point x="0.0" y="388.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment" target="com.xoxltn.pinjam_ajaadmin.AdapterApproval">
+      <point x="-116.85714285714266" y="-146.5" />
+      <point x="665.4761904761906" y="1894.0" />
+      <point x="333.0" y="1894.0" />
+      <point x="111.0" y="79.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity">
+      <point x="-114.0" y="-322.5" />
+      <point x="1217.8751728110594" y="849.0" />
+      <point x="1181.75" y="849.0" />
+      <point x="0.0" y="388.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment" target="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity">
+      <point x="34.08333333333337" y="-124.5" />
+      <point x="3284.4168394777266" y="1894.0" />
+      <point x="3358.958333333333" y="1894.0" />
+      <point x="-69.0" y="245.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity">
+      <point x="-82.66666666666674" y="388.5" />
+      <point x="802.5833333333333" y="808.0" />
+      <point x="741.25" y="808.0" />
+      <point x="741.25" y="399.5" />
+      <point x="-124.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity">
+      <point x="82.66666666666652" y="388.5" />
+      <point x="967.9166666666665" y="849.0" />
+      <point x="897.7179147465436" y="849.0" />
+      <point x="95.625" y="-432.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity" target="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity">
+      <point x="96.75" y="399.5" />
+      <point x="1580.0" y="2279.0" />
+      <point x="1880.125" y="2279.0" />
+      <point x="-93.5" y="-80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity">
+      <point x="-115.0" y="245.5" />
+      <point x="3312.958333333333" y="1622.0" />
+      <point x="3269.958333333333" y="1622.0" />
+      <point x="3269.958333333333" y="1356.5" />
+      <point x="-138.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.ModelApproval" target="com.xoxltn.pinjam_ajaadmin.ModelApproval">
+      <point x="-92.0" y="80.5" />
+      <point x="200.25" y="500.0" />
+      <point x="134.25" y="500.0" />
+      <point x="134.25" y="399.5" />
+      <point x="-138.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment" target="com.xoxltn.pinjam_ajaadmin.AdapterReturn">
+      <point x="81.79999999999995" y="-124.5" />
+      <point x="2572.24383640553" y="1894.0" />
+      <point x="2688.1666666666665" y="1894.0" />
+      <point x="104.0" y="79.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity">
+      <point x="-99.0" y="487.5" />
+      <point x="2108.6666666666665" y="1864.0" />
+      <point x="2039.1666666666665" y="1864.0" />
+      <point x="2039.1666666666665" y="1356.5" />
+      <point x="-148.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity">
+      <point x="32.25" y="399.5" />
+      <point x="1515.5" y="849.0" />
+      <point x="1445.8751728110594" y="849.0" />
+      <point x="114.0" y="-322.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.AdapterRequest" target="com.xoxltn.pinjam_ajaadmin.ModelRequest">
+      <point x="0.0" y="-79.5" />
+      <point x="3028.1666666666665" y="849.0" />
+      <point x="3139.227342549923" y="849.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainLoginActivity" target="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity">
+      <point x="96.66666666666674" y="223.5" />
+      <point x="1970.8333333333333" y="1904.0" />
+      <point x="2030.0" y="1904.0" />
+      <point x="2030.0" y="2289.0" />
+      <point x="2004.7916666666665" y="2289.0" />
+      <point x="31.166666666666742" y="-80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity">
+      <point x="0.0" y="410.5" />
+      <point x="3427.833506144393" y="3371.0" />
+      <point x="3278.833506144393" y="3371.0" />
+      <point x="3278.833506144393" y="2940.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity" target="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment">
+      <point x="101.33333333333326" y="322.5" />
+      <point x="1433.2085061443927" y="1904.0" />
+      <point x="957.6190476190475" y="1904.0" />
+      <point x="175.28571428571422" y="-146.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity" target="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment">
+      <point x="93.5" y="-80.5" />
+      <point x="2067.125" y="2279.0" />
+      <point x="2592.69383640553" y="2279.0" />
+      <point x="102.25" y="124.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity">
+      <point x="-95.625" y="-432.5" />
+      <point x="706.4679147465436" y="849.0" />
+      <point x="595.75" y="849.0" />
+      <point x="0.0" y="388.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity">
+      <point x="-101.33333333333337" y="322.5" />
+      <point x="1230.5418394777262" y="1699.0" />
+      <point x="1159.8751728110594" y="1699.0" />
+      <point x="1159.8751728110594" y="1356.5" />
+      <point x="-152.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment" target="com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity">
+      <point x="-163.60000000000014" y="-124.5" />
+      <point x="2326.84383640553" y="1904.0" />
+      <point x="2207.6666666666665" y="1904.0" />
+      <point x="0.0" y="487.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity">
+      <point x="83.66666666666652" y="388.5" />
+      <point x="679.4166666666665" y="839.0" />
+      <point x="770.2179147465436" y="839.0" />
+      <point x="-31.875" y="-432.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment" target="com.xoxltn.pinjam_ajaadmin.ModelRequest">
+      <point x="-34.08333333333326" y="-124.5" />
+      <point x="3216.25017281106" y="1904.0" />
+      <point x="3253.6666666666665" y="1904.0" />
+      <point x="3253.6666666666665" y="849.0" />
+      <point x="3210.227342549923" y="849.0" />
+      <point x="71.0" y="69.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.ModelRequest" target="com.xoxltn.pinjam_ajaadmin.ModelRequest">
+      <point x="-71.0" y="69.5" />
+      <point x="3068.227342549923" y="489.0" />
+      <point x="3012.727342549923" y="489.0" />
+      <point x="3012.727342549923" y="399.5" />
+      <point x="-106.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment" target="com.xoxltn.pinjam_ajaadmin.MenuReturnFragment">
+      <point x="-102.25" y="124.5" />
+      <point x="2388.19383640553" y="2226.0" />
+      <point x="2265.94383640553" y="2226.0" />
+      <point x="2265.94383640553" y="2081.5" />
+      <point x="-204.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity" target="com.xoxltn.pinjam_ajaadmin.MainDashboardActivity">
+      <point x="-93.5" y="80.5" />
+      <point x="1880.125" y="2490.0" />
+      <point x="1766.625" y="2490.0" />
+      <point x="1766.625" y="2389.5" />
+      <point x="-187.0" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity" target="com.xoxltn.pinjam_ajaadmin.MenuRequestFragment">
+      <point x="23.0" y="245.5" />
+      <point x="3450.958333333333" y="1904.0" />
+      <point x="3420.75017281106" y="1904.0" />
+      <point x="170.41666666666674" y="-124.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuAdminFragment" target="com.xoxltn.pinjam_ajaadmin.MainLoginActivity">
+      <point x="0.0" y="-157.5" />
+      <point x="1815.0" y="1904.0" />
+      <point x="1874.1666666666665" y="1904.0" />
+      <point x="0.0" y="223.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity" target="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment">
+      <point x="85.0" y="432.5" />
+      <point x="887.0929147465436" y="1904.0" />
+      <point x="840.7619047619048" y="1904.0" />
+      <point x="58.42857142857156" y="-146.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity">
+      <point x="88.33333333333326" y="388.5" />
+      <point x="1270.0833333333333" y="849.0" />
+      <point x="1293.8751728110594" y="849.0" />
+      <point x="-38.0" y="-322.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.AdapterApproval" target="com.xoxltn.pinjam_ajaadmin.ModelApproval">
+      <point x="0.0" y="-79.5" />
+      <point x="222.0" y="849.0" />
+      <point x="292.25" y="849.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity">
+      <point x="-83.66666666666674" y="388.5" />
+      <point x="512.0833333333333" y="808.0" />
+      <point x="450.25" y="808.0" />
+      <point x="450.25" y="399.5" />
+      <point x="-125.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment" target="com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity">
+      <point x="0.0" y="-146.5" />
+      <point x="782.3333333333333" y="1904.0" />
+      <point x="802.0929147465436" y="1904.0" />
+      <point x="0.0" y="432.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment" target="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment">
+      <point x="-102.25" y="146.5" />
+      <point x="680.0833333333333" y="2248.0" />
+      <point x="557.8333333333333" y="2248.0" />
+      <point x="557.8333333333333" y="2081.5" />
+      <point x="-204.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.ModelReturn" target="com.xoxltn.pinjam_ajaadmin.ModelReturn">
+      <point x="-80.33333333333331" y="80.5" />
+      <point x="2606.727342549923" y="500.0" />
+      <point x="2546.5606758832564" y="500.0" />
+      <point x="2546.5606758832564" y="399.5" />
+      <point x="-120.5" y="-0.0" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity">
+      <point x="116.85714285714266" y="-146.5" />
+      <point x="899.1904761904759" y="1894.0" />
+      <point x="1331.8751728110594" y="1894.0" />
+      <point x="0.0" y="322.5" />
+    </edge>
+    <edge source="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity" target="com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity">
+      <point x="38.0" y="-322.5" />
+      <point x="1369.8751728110594" y="839.0" />
+      <point x="1451.0" y="839.0" />
+      <point x="-32.25" y="399.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3004837409298576" x="1664.492531973884" y="2196.33172345944" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

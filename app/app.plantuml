@@ -1,0 +1,170 @@
+@startuml
+
+title __APP's Class Diagram__\n
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterApproval {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterRequest {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterReturn {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.BuildConfig {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MainDashboardActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MainLoginActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuAdminFragment {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuRequestFragment {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuReturnFragment {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelApproval {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelRequest {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelReturn {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity {
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity {
+    }
+  }
+  
+
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval o-- com.xoxltn.pinjam_ajaadmin.AdapterApproval.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest o-- com.xoxltn.pinjam_ajaadmin.AdapterRequest.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn o-- com.xoxltn.pinjam_ajaadmin.AdapterReturn.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.MainDashboardActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.MainLoginActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.MenuAdminFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterApproval : mAdapter
+  com.xoxltn.pinjam_ajaadmin.MenuRequestFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuRequestFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterRequest : mAdapter
+  com.xoxltn.pinjam_ajaadmin.MenuReturnFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuReturnFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterReturn : mAdapter
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity -up-|> androidx.appcompat.app.AppCompatActivity
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

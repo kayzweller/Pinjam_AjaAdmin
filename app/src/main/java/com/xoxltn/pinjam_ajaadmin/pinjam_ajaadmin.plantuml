@@ -1,0 +1,630 @@
+@startuml
+
+title __PINJAM_AJAADMIN's Class Diagram__\n
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterApproval {
+        + AdapterApproval()
+        + onCreateViewHolder()
+        + setOnItemClickListener()
+        # onBindViewHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterApproval.ApprovalHolder {
+        ~ mCardRequest : CardView
+        ~ mTextNominalPinjaman : TextView
+        ~ mTextStatusPinjaman : TextView
+        ~ mTextTanggalBayar : TextView
+        ~ ApprovalHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    interface com.xoxltn.pinjam_ajaadmin.AdapterApproval.OnItemClickListener {
+        {abstract} + onItemClick()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterRequest {
+        + AdapterRequest()
+        + onCreateViewHolder()
+        + setOnItemClickListener()
+        # onBindViewHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    interface com.xoxltn.pinjam_ajaadmin.AdapterRequest.OnItemClickListener {
+        {abstract} + onItemClick()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterRequest.RequestHolder {
+        ~ mCardRequest : CardView
+        ~ mTextViewNominalPinjaman : TextView
+        ~ mTextViewTanggal : TextView
+        ~ RequestHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterReturn {
+        + AdapterReturn()
+        + onCreateViewHolder()
+        + setOnItemClickListener()
+        # onBindViewHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    interface com.xoxltn.pinjam_ajaadmin.AdapterReturn.OnItemClickListener {
+        {abstract} + onItemClick()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.AdapterReturn.ReturnHolder {
+        ~ mCardReturn : CardView
+        ~ mTextNominalPinjaman : TextView
+        ~ mTextTahapPinjaman : TextView
+        ~ mTextTanggalTransfer : TextView
+        ~ ReturnHolder()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MainDashboardActivity {
+        ~ DELAY_PRESS : int
+        ~ doubleBackToExitPressedOnce : boolean
+        - mOnNavListener : OnNavigationItemSelectedListener
+        + onBackPressed()
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MainLoginActivity {
+        ~ DELAY_PRESS : int
+        ~ doubleBackToExitPressedOnce : boolean
+        ~ mEmailInput : TextInputLayout
+        ~ mMasukButton : Button
+        ~ mPasswordInput : TextInputLayout
+        ~ mProgressBar : ProgressBar
+        - mAuth : FirebaseAuth
+        - mFire : FirebaseFirestore
+        - mFireUser : FirebaseUser
+        + onBackPressed()
+        + onLoginButtonClick()
+        + onStart()
+        # onCreate()
+        - executeAutoLogin()
+        - progressBarLoad()
+        - progressBarUnload()
+        - validateEmail()
+        - validatePassword()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuAdminFragment {
+        - mAuth : FirebaseAuth
+        - mDocRef : DocumentReference
+        - mEmail : String
+        - mFireUser : FirebaseUser
+        - mName : String
+        - mTextEmail : TextView
+        - mTextName : TextView
+        - mView : View
+        + onCreateView()
+        - callButtonLogout()
+        - callDataAdmin()
+        - setText()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment {
+        {static} + SEND_DOCUMENT_DOC : String
+        {static} + SEND_DOCUMENT_PATH : String
+        - mColRef : CollectionReference
+        - mDoc : String
+        - mPath : String
+        - mView : View
+        + onCreateView()
+        + onStart()
+        + onStop()
+        - setUpRecycleView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuRequestFragment {
+        {static} + SEND_DOCUMENT_DOC : String
+        {static} + SEND_DOCUMENT_PATH : String
+        - mColRef : CollectionReference
+        - mView : View
+        + onCreateView()
+        + onStart()
+        + onStop()
+        - setUpRecycleView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.MenuReturnFragment {
+        {static} + SEND_DOCUMENT_DOC : String
+        {static} + SEND_DOCUMENT_PATH : String
+        - mColRef : CollectionReference
+        - mView : View
+        + onCreateView()
+        + onStart()
+        + onStop()
+        - setUpRecycleView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelApproval {
+        - pinjaman_besar : int
+        - pinjaman_status : String
+        - pinjaman_tanggal_bayar : Date
+        + ModelApproval()
+        + ModelApproval()
+        + getPinjaman_besar()
+        + getPinjaman_status()
+        + getPinjaman_tanggal_bayar()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelRequest {
+        - pinjaman_besar : int
+        - pinjaman_tanggal_req : Date
+        + ModelRequest()
+        + ModelRequest()
+        + getPinjaman_besar()
+        + getPinjaman_tanggal_req()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.ModelReturn {
+        - pinjaman_besar : int
+        - pinjaman_tahap : int
+        - pinjaman_tanggal_transfer : Date
+        + ModelReturn()
+        + ModelReturn()
+        + getPinjaman_besar()
+        + getPinjaman_tahap()
+        + getPinjaman_tanggal_transfer()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity {
+        {static} ~ SEND_ID_PEMINJAM : String
+        {static} ~ SEND_ID_PENDANA : String
+        - mCurrentDate : Date
+        - mDocName : String
+        - mDocPath : String
+        - mDocRef : DocumentReference
+        - mFire : FirebaseFirestore
+        - mIDNotif : String
+        - mIDPeminjam : String
+        - mIDPendana : String
+        - mNominal_pinjam : int
+        - mPayDate1 : Calendar
+        - mPayDate2 : Calendar
+        - mPayDate3 : Calendar
+        - mTanggalPengajuan : Date
+        - mTextBesarKembali : TextView
+        - mTextBesarPinjaman : TextView
+        - mTextIDPeminjam : TextView
+        - mTextIDPinjaman : TextView
+        - mTextResult : TextView
+        - mTextTanggalPinjaman : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickDataPeminjam()
+        + onClickDataPendana()
+        + onClickKonfirmasiPendanaan()
+        # onCreate()
+        - getData()
+        - setTextView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity {
+        - docRef : DocumentReference
+        - imageview_ktp : ImageView
+        - mIDPeminjam : String
+        - text_alamat_instansi : TextView
+        - text_alamat_pribadi : TextView
+        - text_bank : TextView
+        - text_email : TextView
+        - text_holder : TextView
+        - text_hub_ktk1 : TextView
+        - text_hub_ktk2 : TextView
+        - text_id_peminjam : TextView
+        - text_jenis_kelamin : TextView
+        - text_jenis_pekerjaan : TextView
+        - text_kendaraan : TextView
+        - text_nama : TextView
+        - text_nama_ibu : TextView
+        - text_nama_instansi : TextView
+        - text_nama_ktk1 : TextView
+        - text_nama_ktk2 : TextView
+        - text_no_ktp : TextView
+        - text_no_telp : TextView
+        - text_pendidikan : TextView
+        - text_penghasilan : TextView
+        - text_rekening : TextView
+        - text_status : TextView
+        - text_telp_ktk1 : TextView
+        - text_telp_ktk2 : TextView
+        - text_tempat_lahir : TextView
+        - text_tgl_lahir : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        # onCreate()
+        - callDataPeminjam()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity {
+        - docRef : DocumentReference
+        - imageview_ktp : ImageView
+        - mIDPendana : String
+        - text_alamat_instansi : TextView
+        - text_alamat_pribadi : TextView
+        - text_bank : TextView
+        - text_email : TextView
+        - text_holder : TextView
+        - text_hub_ktk1 : TextView
+        - text_hub_ktk2 : TextView
+        - text_id_pendana : TextView
+        - text_jenis_kelamin : TextView
+        - text_jenis_pekerjaan : TextView
+        - text_kendaraan : TextView
+        - text_nama : TextView
+        - text_nama_ibu : TextView
+        - text_nama_instansi : TextView
+        - text_nama_ktk1 : TextView
+        - text_nama_ktk2 : TextView
+        - text_no_ktp : TextView
+        - text_no_telp : TextView
+        - text_pendidikan : TextView
+        - text_penghasilan : TextView
+        - text_rekening : TextView
+        - text_status : TextView
+        - text_telp_ktk1 : TextView
+        - text_telp_ktk2 : TextView
+        - text_tempat_lahir : TextView
+        - text_tgl_lahir : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickPerbaikiData()
+        # onCreate()
+        - callDataPendana()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity {
+        {static} ~ SEND_ID_PEMINJAM : String
+        {static} ~ SEND_ID_PENDANA : String
+        - besar_pinjaman : int
+        - cicil_1 : Date
+        - cicil_2 : Date
+        - cicil_3 : Date
+        - denda : int
+        - formatter : NumberFormat
+        - mDocName : String
+        - mDocPath : String
+        - mDocRef : DocumentReference
+        - mIDPeminjam : String
+        - mIDPendana : String
+        - status : String
+        - tahap : int
+        - terbayar : int
+        - text_besar_pinjaman : TextView
+        - text_cicil_1 : TextView
+        - text_cicil_2 : TextView
+        - text_cicil_3 : TextView
+        - text_denda : TextView
+        - text_id_pinjaman : TextView
+        - text_sisa_tenor : TextView
+        - text_status : TextView
+        - text_tahap : TextView
+        - text_terbayar : TextView
+        - text_tgl_pendanaan : TextView
+        - text_total_kembali : TextView
+        - tgl_pendanaan : Date
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickDataPeminjam()
+        + onClickDataPendana()
+        # onCreate()
+        - FormatRupiah()
+        - getSetData()
+        - setTextView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity {
+        - docRef : DocumentReference
+        - imageview_ktp : ImageView
+        - mIDPeminjam : String
+        - text_alamat_instansi : TextView
+        - text_alamat_pribadi : TextView
+        - text_bank : TextView
+        - text_email : TextView
+        - text_holder : TextView
+        - text_hub_ktk1 : TextView
+        - text_hub_ktk2 : TextView
+        - text_id_peminjam : TextView
+        - text_jenis_kelamin : TextView
+        - text_jenis_pekerjaan : TextView
+        - text_kendaraan : TextView
+        - text_nama : TextView
+        - text_nama_ibu : TextView
+        - text_nama_instansi : TextView
+        - text_nama_ktk1 : TextView
+        - text_nama_ktk2 : TextView
+        - text_no_ktp : TextView
+        - text_no_telp : TextView
+        - text_pendidikan : TextView
+        - text_penghasilan : TextView
+        - text_rekening : TextView
+        - text_status : TextView
+        - text_telp_ktk1 : TextView
+        - text_telp_ktk2 : TextView
+        - text_tempat_lahir : TextView
+        - text_tgl_lahir : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        # onCreate()
+        - callDataPeminjam()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity {
+        - docRef : DocumentReference
+        - imageview_ktp : ImageView
+        - mIDPendana : String
+        - text_alamat_instansi : TextView
+        - text_alamat_pribadi : TextView
+        - text_bank : TextView
+        - text_email : TextView
+        - text_holder : TextView
+        - text_hub_ktk1 : TextView
+        - text_hub_ktk2 : TextView
+        - text_id_pendana : TextView
+        - text_jenis_kelamin : TextView
+        - text_jenis_pekerjaan : TextView
+        - text_kendaraan : TextView
+        - text_nama : TextView
+        - text_nama_ibu : TextView
+        - text_nama_instansi : TextView
+        - text_nama_ktk1 : TextView
+        - text_nama_ktk2 : TextView
+        - text_no_ktp : TextView
+        - text_no_telp : TextView
+        - text_pendidikan : TextView
+        - text_penghasilan : TextView
+        - text_rekening : TextView
+        - text_status : TextView
+        - text_telp_ktk1 : TextView
+        - text_telp_ktk2 : TextView
+        - text_tempat_lahir : TextView
+        - text_tgl_lahir : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        # onCreate()
+        - callDataPendana()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity {
+        {static} ~ SEND_ID_PEMINJAM : String
+        - mCurrentDate : Date
+        - mDocName : String
+        - mDocPath : String
+        - mDocRef : DocumentReference
+        - mFire : FirebaseFirestore
+        - mIDNotif : String
+        - mIDPeminjam : String
+        - mNominal_pinjam : int
+        - mTanggalPengajuan : Date
+        - mTextBesarKembali : TextView
+        - mTextBesarPinjaman : TextView
+        - mTextIDPeminjam : TextView
+        - mTextIDPinjaman : TextView
+        - mTextResult : TextView
+        - mTextTanggalPinjaman : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickDataPeminjam()
+        + onClickSetujuiPinjaman()
+        # onCreate()
+        - getData()
+        - setTextView()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity {
+        - docRef : DocumentReference
+        - id_pinjaman : String
+        - imageview_ktp : ImageView
+        - mCurrentDate : Date
+        - mFire : FirebaseFirestore
+        - mIDNotif : String
+        - mIDPeminjam : String
+        - text_alamat_instansi : TextView
+        - text_alamat_pribadi : TextView
+        - text_bank : TextView
+        - text_email : TextView
+        - text_holder : TextView
+        - text_hub_ktk1 : TextView
+        - text_hub_ktk2 : TextView
+        - text_id_peminjam : TextView
+        - text_jenis_kelamin : TextView
+        - text_jenis_pekerjaan : TextView
+        - text_kendaraan : TextView
+        - text_nama : TextView
+        - text_nama_ibu : TextView
+        - text_nama_instansi : TextView
+        - text_nama_ktk1 : TextView
+        - text_nama_ktk2 : TextView
+        - text_no_ktp : TextView
+        - text_no_telp : TextView
+        - text_pendidikan : TextView
+        - text_penghasilan : TextView
+        - text_rekening : TextView
+        - text_status : TextView
+        - text_telp_ktk1 : TextView
+        - text_telp_ktk2 : TextView
+        - text_tempat_lahir : TextView
+        - text_tgl_lahir : TextView
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickPerbaikiData()
+        # onCreate()
+        - callDataPeminjam()
+    }
+  }
+  
+
+  namespace com.xoxltn.pinjam_ajaadmin {
+    class com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity {
+        - cicilanConfirm : String
+        - cicilanTitle : String
+        - formatter : NumberFormat
+        - mCalDendaTotal : Long
+        - mCurrentDate : Date
+        - mDenda : Long
+        - mDendaTotal : Long
+        - mDocName : String
+        - mDocPath : String
+        - mDocRef : DocumentReference
+        - mFire : FirebaseFirestore
+        - mIDNotif : String
+        - mIDPeminjam : String
+        - mIDPendana : String
+        - mTahap : int
+        - mTerbayar : int
+        - mTerbayarPendana : int
+        - mTextBesarPinjaman : TextView
+        - mTextDenda : TextView
+        - mTextHolderPeminjam : TextView
+        - mTextHolderPendana : TextView
+        - mTextIDPeminjam : TextView
+        - mTextIDPendana : TextView
+        - mTextIDPinjaman : TextView
+        - mTextNamaPeminjam : TextView
+        - mTextNamaPendana : TextView
+        - mTextNominalTransfer : TextView
+        - mTextPokok : TextView
+        - mTextRekPeminjam : TextView
+        - mTextRekPendana : TextView
+        - mTextTahapPinjaman : TextView
+        - mTextTglJatuhTempo : TextView
+        - mTextTglPendanaan : TextView
+        - mTextTglTransfer : TextView
+        - mTextTotalKembali : TextView
+        - mTextTotalTerbayar : TextView
+        - mTextTransferKePendana : TextView
+        - mTransfer : int
+        - mTransferPendana : int
+        + buttonBackArrow()
+        + onBackPressed()
+        + onClickBatalkanPembayaran()
+        + onClickKonfirmasiPembayaran()
+        # onCreate()
+        - FormatRupiah()
+        - getSetData()
+        - getSetDataPeminjam()
+        - getSetDataPendana()
+        - mDocRefData()
+    }
+  }
+  
+
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval o-- com.xoxltn.pinjam_ajaadmin.AdapterApproval.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval +-down- com.xoxltn.pinjam_ajaadmin.AdapterApproval.ApprovalHolder
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval +-down- com.xoxltn.pinjam_ajaadmin.AdapterApproval.OnItemClickListener
+  com.xoxltn.pinjam_ajaadmin.AdapterApproval.ApprovalHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest o-- com.xoxltn.pinjam_ajaadmin.AdapterRequest.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest +-down- com.xoxltn.pinjam_ajaadmin.AdapterRequest.OnItemClickListener
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest +-down- com.xoxltn.pinjam_ajaadmin.AdapterRequest.RequestHolder
+  com.xoxltn.pinjam_ajaadmin.AdapterRequest.RequestHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn -up-|> com.firebase.ui.firestore.FirestoreRecyclerAdapter
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn o-- com.xoxltn.pinjam_ajaadmin.AdapterReturn.OnItemClickListener : listener
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn +-down- com.xoxltn.pinjam_ajaadmin.AdapterReturn.OnItemClickListener
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn +-down- com.xoxltn.pinjam_ajaadmin.AdapterReturn.ReturnHolder
+  com.xoxltn.pinjam_ajaadmin.AdapterReturn.ReturnHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.xoxltn.pinjam_ajaadmin.MainDashboardActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.MainLoginActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.MenuAdminFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuApprovalFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterApproval : mAdapter
+  com.xoxltn.pinjam_ajaadmin.MenuRequestFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuRequestFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterRequest : mAdapter
+  com.xoxltn.pinjam_ajaadmin.MenuReturnFragment -up-|> androidx.fragment.app.Fragment
+  com.xoxltn.pinjam_ajaadmin.MenuReturnFragment o-- com.xoxltn.pinjam_ajaadmin.AdapterReturn : mAdapter
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuApprovalPendanaActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuDetailPendanaActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuRequestActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuRequestPeminjamActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.xoxltn.pinjam_ajaadmin.SubmenuReturnActivity -up-|> androidx.appcompat.app.AppCompatActivity
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
