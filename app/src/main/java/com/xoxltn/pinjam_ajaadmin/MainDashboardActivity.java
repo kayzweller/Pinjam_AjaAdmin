@@ -34,33 +34,30 @@ public class MainDashboardActivity extends AppCompatActivity {
     //-------------------------------------------------------------------------------------------//
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            item -> {
 
-                    Fragment selectedFragment = null;
-                    switch (item.getItemId()) {
-                        case R.id.fund_request:
-                            selectedFragment = new MenuRequestFragment();
-                            break;
-                        case R.id.fund_approval:
-                            selectedFragment = new MenuApprovalFragment();
-                            break;
-                        case R.id.fund_return:
-                            selectedFragment = new MenuReturnFragment();
-                            break;
-                        case R.id.fund_admin:
-                            selectedFragment = new MenuAdminFragment();
-                            break;
-                    }
-
-                    if (selectedFragment != null) {
-                        getSupportFragmentManager().beginTransaction().replace
-                                (R.id.fragment_container, selectedFragment).commit();
-                    }
-
-                    return true;
+                Fragment selectedFragment = null;
+                switch (item.getItemId()) {
+                    case R.id.fund_request:
+                        selectedFragment = new MenuRequestFragment();
+                        break;
+                    case R.id.fund_approval:
+                        selectedFragment = new MenuApprovalFragment();
+                        break;
+                    case R.id.fund_return:
+                        selectedFragment = new MenuReturnFragment();
+                        break;
+                    case R.id.fund_admin:
+                        selectedFragment = new MenuAdminFragment();
+                        break;
                 }
+
+                if (selectedFragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace
+                            (R.id.fragment_container, selectedFragment).commit();
+                }
+
+                return true;
             };
 
     //-------------------------------------------------------------------------------------------//
@@ -81,12 +78,7 @@ public class MainDashboardActivity extends AppCompatActivity {
         Toast.makeText(this, "Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT)
                 .show();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, DELAY_PRESS);
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, DELAY_PRESS);
     }
 
 }

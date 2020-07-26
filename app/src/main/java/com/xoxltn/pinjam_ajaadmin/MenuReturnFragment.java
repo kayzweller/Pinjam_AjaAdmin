@@ -43,9 +43,10 @@ public class MenuReturnFragment extends Fragment {
 
     private void setUpRecycleView() {
         Query query = mColRef.whereEqualTo("pinjaman_konfirmasi_pembayaran", false)
-                .orderBy("pinjaman_tanggal_transfer", Query.Direction.ASCENDING);
+                .orderBy("pinjaman_tanggal_transfer", Query.Direction.DESCENDING);
 
-        FirestoreRecyclerOptions<ModelReturn> options = new FirestoreRecyclerOptions.Builder<ModelReturn>()
+        FirestoreRecyclerOptions<ModelReturn> options = new FirestoreRecyclerOptions
+                .Builder<ModelReturn>()
                 .setQuery(query, ModelReturn.class)
                 .build();
 

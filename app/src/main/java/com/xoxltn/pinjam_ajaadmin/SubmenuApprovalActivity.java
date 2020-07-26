@@ -1,12 +1,10 @@
 package com.xoxltn.pinjam_ajaadmin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,6 +16,9 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
 
     static final String SEND_ID_PEMINJAM = "com.xoxltn.pinjam_ajaadmin.SEND_ID_PEMINJAM";
     static final String SEND_ID_PENDANA = "com.xoxltn.pinjam_ajaadmin.SEND_ID_PENDANA";
+    static final String SEND_DOCUMENT_PATH = "com.xoxltn.pinjam_ajaadmin.SEND_DOCUMENT_PATH";
+    static final String SEND_DOCUMENT_DOC = "com.xoxltn.pinjam_ajaadmin.SEND_DOCUMENT_DOC";
+    static final String SEND_LEND_NOMINAL = "com.xoxltn.pinjam_ajaadmin.SEND_LEND_NOMINAL";
 
     // set for notification
     private FirebaseFirestore mFire;
@@ -32,6 +33,8 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
 
     private String mIDPeminjam;
     private String mIDPendana;
+
+    private String mSet;
 
     private TextView mTextIDPinjaman, mTextIDPeminjam, mTextTanggalPinjaman,
             mTextBesarPinjaman, mTextBesarKembali, mTextResult;
@@ -109,18 +112,18 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
         switch (mNominal_pinjam) {
             case 500000:
                 mTextBesarPinjaman.setText(R.string.pinjam_500k);
-                String set1 = "Rp. 575.000,-";
-                mTextBesarKembali.setText(set1);
+                String mSet1 = "Rp. 575.000,-";
+                mTextBesarKembali.setText(mSet1);
                 break;
             case 1000000:
                 mTextBesarPinjaman.setText(R.string.pinjam_1000k);
-                String set2 = "Rp. 1.150.000,-";
-                mTextBesarKembali.setText(set2);
+                String mSet2 = "Rp. 1.150.000,-";
+                mTextBesarKembali.setText(mSet2);
                 break;
             case 1500000:
                 mTextBesarPinjaman.setText(R.string.pinjam_1500k);
-                String set3 = "Rp. 1.725.000,-";
-                mTextBesarKembali.setText(set3);
+                String mSet3 = "Rp. 1.725.000,-";
+                mTextBesarKembali.setText(mSet3);
                 break;
         }
     }
@@ -136,6 +139,10 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
     public void onClickDataPendana(View view) {
         Intent dataPendana = new Intent(this, SubmenuApprovalPendanaActivity.class);
         dataPendana.putExtra(SEND_ID_PENDANA, mIDPendana);
+        dataPendana.putExtra(SEND_DOCUMENT_PATH, mDocPath);
+        dataPendana.putExtra(SEND_DOCUMENT_DOC, mDocName);
+        String extra = String.valueOf(mNominal_pinjam);
+        dataPendana.putExtra(SEND_LEND_NOMINAL, extra);
         startActivity(dataPendana);
     }
 
@@ -156,6 +163,7 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
         mDocRef.update("pinjaman_tanggal_bayar", mPayDate1.getTime()); //not used, delete later..
 
         mDocRef.update("pinjaman_status", "PINJAMAN AKTIF");
+        mDocRef.update("pinjaman_status_pembayaran", "CICILAN BELUM DIBAYAR");
         mDocRef.update("pinjaman_aktif", true)
                 .addOnSuccessListener(aVoid -> {
                     String set = "Pinjaman Aktif!";
@@ -163,7 +171,7 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
                     mTextResult.setVisibility(View.VISIBLE);
                 });
 
-        // set the notification
+        // set the notification for borrower
         Map<String, Object> dataNotif = new HashMap<>();
         dataNotif.put("id_user", mIDPeminjam);
         dataNotif.put("notif_type", true);
@@ -173,6 +181,29 @@ public class SubmenuApprovalActivity extends AppCompatActivity {
                 "Silahkan cek saldo rekening Anda dan perhatikan tanggal pembayaran " +
                 "cicilan pinjaman setiap bulannya.");
         mFire.collection("NOTIFIKASI").document(mIDNotif).set(dataNotif);
+
+        // call the borrowing nominal
+        switch (mNominal_pinjam) {
+            case 500000:
+                mSet = "Rp. 500.000,-";
+                break;
+            case 1000000:
+                mSet = "Rp. 1.000.000,-";
+                break;
+            case 1500000:
+                mSet = "Rp. 1.500.000,-";
+                break;
+        }
+
+        // set the notification for lender
+        Map<String, Object> dataNotif2 = new HashMap<>();
+        dataNotif2.put("id_user", mIDPendana);
+        dataNotif2.put("notif_type", true);
+        dataNotif2.put("notif_date", mCurrentDate);
+        dataNotif2.put("notif_title", "Pendanaan Pinjaman Disetujui!");
+        dataNotif2.put("notif_detail", "Selamat, pendanaan pinjaman Anda dengan ID : " + mDocName +
+                " dengan nilai pinjaman " + mSet + " telah disetujui.");
+        mFire.collection("NOTIFIKASI").document(mIDNotif).set(dataNotif2);
 
         finish();
     }

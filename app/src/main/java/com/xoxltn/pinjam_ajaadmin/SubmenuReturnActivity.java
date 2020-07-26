@@ -25,8 +25,8 @@ public class SubmenuReturnActivity extends AppCompatActivity {
     private FirebaseFirestore mFire;
     private String mIDNotif;
     private Date mCurrentDate;
-    private String cicilanConfirm;
-    private String cicilanTitle;
+    private String cicilanConfirmPeminjam, cicilanTitlePeminjam;
+    private String cicilanConfirmPendana, cicilanTitlePendana;
 
     private TextView mTextIDPinjaman, mTextBesarPinjaman, mTextTotalKembali, mTextTglPendanaan,
             mTextTahapPinjaman, mTextTglJatuhTempo, mTextTglTransfer;
@@ -40,6 +40,9 @@ public class SubmenuReturnActivity extends AppCompatActivity {
     private int mTahap, mTransfer, mTransferPendana, mTerbayar, mTerbayarPendana;
 
     private Long mDendaTotal, mDenda, mCalDendaTotal;
+
+    private String mSet;
+    private int mNominal_pinjam;
 
     //-------------------------------------------------------------------------------------------//
 
@@ -104,8 +107,8 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                 // besar pinjaman
                 Long c_pinjaman = doc.getLong("pinjaman_besar");
                 assert c_pinjaman != null;
-                int besar_pinjaman = Math.toIntExact(c_pinjaman);
-                switch (besar_pinjaman) {
+                mNominal_pinjam = Math.toIntExact(c_pinjaman);
+                switch (mNominal_pinjam) {
                     case 500000:
                         mTextBesarPinjaman.setText(R.string.pinjam_500k);
                         String load_1 = "Rp. 600.000,-";
@@ -189,19 +192,19 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                 String l_terbayar = formatter.format(mTerbayar);
                 mTextTotalTerbayar.setText(l_terbayar);
 
-                // pengembalian pendanaan akumulasi
-                Long c_terbayar_pendana = doc.getLong("pinjaman_terbayar_pendana");
-                assert c_terbayar_pendana != null;
-                mTerbayarPendana = Math.toIntExact(c_terbayar);
-                String l_terbayar_pendana = formatter.format(mTerbayarPendana);
-                mTextTotalTerbayar.setText(l_terbayar_pendana);
-
                 // nominal transfer
                 Long c_transfer = doc.getLong("pinjaman_transfer");
                 assert c_transfer != null;
                 mTransfer = Math.toIntExact(c_transfer);
                 String l_transfer = formatter.format(mTransfer);
                 mTextNominalTransfer.setText(l_transfer);
+
+                // pengembalian pendanaan akumulasi
+                Long c_terbayar_pendana = doc.getLong("pinjaman_terbayar_pendana");
+                assert c_terbayar_pendana != null;
+                mTerbayarPendana = Math.toIntExact(c_terbayar_pendana);
+                String l_terbayar_pendana = formatter.format(mTerbayarPendana);
+                mTextTotalTerbayar.setText(l_terbayar_pendana);
 
                 // besar transfer ke pendana
                 Long c_transfer_pendana = doc.getLong("pinjaman_transfer_pendana");
@@ -221,13 +224,20 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                 String l_denda = formatter.format(denda);
                 mTextDenda.setText(l_denda);
 
-                Log.e("mDendaTotal", String.valueOf(mDendaTotal));
-                Log.e("mDenda", String.valueOf(mDenda));
-                Log.e("mCalDendaTotal", String.valueOf(mCalDendaTotal));
-
                 // get-set from another collection
                 getSetDataPendana(mIDPendana);
                 getSetDataPeminjam(mIDPeminjam);
+
+                // Log the value
+                Log.e("mDendaTotal", String.valueOf(mDendaTotal));
+                Log.e("mDenda", String.valueOf(mDenda));
+                Log.e("mCalDendaTotal", String.valueOf(mCalDendaTotal));
+                Log.e("TRANSFER", String.valueOf(mTransfer));
+                Log.e("TERBAYAR", String.valueOf(mTerbayar));
+                Log.e("AKUMULASI", String.valueOf(mTransfer + mTerbayar));
+                Log.e("TRANSFER PENDANA", String.valueOf(mTransferPendana));
+                Log.e("TERBAYAR PENDANA", String.valueOf(mTerbayarPendana));
+                Log.e("AKUMULASI PENDANA", String.valueOf(mTransferPendana + mTerbayarPendana));
 
             }
         });
@@ -241,8 +251,8 @@ public class SubmenuReturnActivity extends AppCompatActivity {
         mDocRefData(id, mTextNamaPendana, mTextHolderPendana, mTextRekPendana);
     }
 
-    private void mDocRefData(String id, TextView mTextNamaPendana, TextView mTextHolderPendana,
-                             TextView mTextRekPendana) {
+    private void mDocRefData(String id, TextView mTextNama, TextView mTextHolder,
+                             TextView mTextRek) {
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection("USER").document(id);
 
@@ -256,9 +266,9 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                 String rekening = doc.getString("rekening_rekbank");
 
                 // set
-                mTextNamaPendana.setText(nama);
-                mTextHolderPendana.setText(holder);
-                mTextRekPendana.setText(rekening);
+                mTextNama.setText(nama);
+                mTextHolder.setText(holder);
+                mTextRek.setText(rekening);
             }
         });
     }
@@ -271,9 +281,23 @@ public class SubmenuReturnActivity extends AppCompatActivity {
         int total_terbayar = mTransfer + mTerbayar;
         mDocRef.update("pinjaman_terbayar", total_terbayar);
 
-        // akumulasi pengembalian
+        // akumulasi pengembalian ke pendana
         int total_terbayar_pendana = mTransferPendana + mTerbayarPendana;
         mDocRef.update("pinjaman_terbayar_pendana", total_terbayar_pendana);
+
+
+        // set the nominal of borrow
+        switch (mNominal_pinjam) {
+            case 500000:
+                mSet = "Rp. 500.000,-";
+                break;
+            case 1000000:
+                mSet = "Rp. 1.000.000,-";
+                break;
+            case 1500000:
+                mSet = "Rp. 1.500.000,-";
+                break;
+        }
 
         // tahap --> 1 > 2 > 3 > 0 (lunas)
         if (mTahap == 1) {
@@ -281,16 +305,28 @@ public class SubmenuReturnActivity extends AppCompatActivity {
             mDocRef.update("pinjaman_status_pembayaran", "CICILAN PERTAMA TERBAYAR");
             mDocRef.update("pinjaman_denda_total", mCalDendaTotal);
             mDocRef.update("pinjaman_denda", 0);
-            cicilanTitle = "Pembayaran Cicilan Dikonfirmasi!";
-            cicilanConfirm = "Transfer cicilan pertama Anda telah diterima.";
+
+            // set notification
+            cicilanTitlePendana = "Pembayaran cicilan diterima!";
+            cicilanConfirmPendana = "Transfer pengembalian cicilan pertama pendanaan Anda untuk ID : " +
+                    mDocName + " dengan nilai pinjaman " + mSet +" telah dikonfirmasi oleh Admin, " +
+                    "silahkan cek rekening Anda.";
+            cicilanTitlePeminjam = "Pembayaran Cicilan Dikonfirmasi!";
+            cicilanConfirmPeminjam = "Transfer cicilan pertama Anda telah diterima.";
 
         } else if (mTahap == 2) {
             mDocRef.update("pinjaman_tahap", 3);
             mDocRef.update("pinjaman_status_pembayaran", "CICILAN KEDUA TERBAYAR");
             mDocRef.update("pinjaman_denda_total", mCalDendaTotal);
             mDocRef.update("pinjaman_denda", 0);
-            cicilanTitle = "Pembayaran Cicilan Dikonfirmasi!";
-            cicilanConfirm = "Transfer cicilan kedua Anda telah diterima.";
+
+            // set notification
+            cicilanTitlePendana = "Pembayaran cicilan diterima!";
+            cicilanConfirmPendana = "Transfer pengembalian cicilan kedua pendanaan Anda untuk ID : " +
+                    mDocName + " dengan nilai pinjaman " + mSet +" telah dikonfirmasi oleh Admin, " +
+                    "silahkan cek rekening Anda.";
+            cicilanTitlePeminjam = "Pembayaran Cicilan Dikonfirmasi!";
+            cicilanConfirmPeminjam = "Transfer cicilan kedua Anda telah diterima.";
 
         } else if (mTahap == 3) {
             // update lunas (pinjaman_lunas --> true, pinjaman_aktif --> false)
@@ -301,8 +337,14 @@ public class SubmenuReturnActivity extends AppCompatActivity {
             mDocRef.update("pinjaman_lunas", true);
             mDocRef.update("pinjaman_aktif", false);
             mDocRef.update("pinjaman_status", "LUNAS");
-            cicilanTitle = "Pinjaman Anda Lunas!";
-            cicilanConfirm = "Transfer cicilan terakhir Anda telah diterima, " +
+
+            // set notification
+            cicilanTitlePendana = "Pendanaan Anda lunas terbayar!";
+            cicilanConfirmPendana = "Transfer pengembalian cicilan terakhir pendanaan Anda untuk ID : " +
+                    mDocName + " dengan nilai pinjaman " + mSet +" telah dikonfirmasi oleh Admin, " +
+                    "silahkan cek rekening Anda.";
+            cicilanTitlePeminjam = "Pinjaman Anda Lunas!";
+            cicilanConfirmPeminjam = "Transfer cicilan terakhir Anda telah diterima, " +
                     "Anda dapat mengajukan permintaan pinjaman kembali.";
 
             // -------- (USER : pinjaman_aktif --> 0, pinjaman_status = false)
@@ -322,18 +364,25 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                             "Transfer cicilan dikonfirmasi!",
                             Toast.LENGTH_SHORT).show();
 
-                    // set the notification
-                    Map<String, Object> dataNotif = new HashMap<>();
-                    dataNotif.put("id_user", mIDPeminjam);
-                    dataNotif.put("notif_type", true);
-                    dataNotif.put("notif_date", mCurrentDate);
-                    dataNotif.put("notif_title", cicilanTitle);
-                    dataNotif.put("notif_detail", cicilanConfirm);
-                    mFire.collection("NOTIFIKASI")
-                            .document(mIDNotif).set(dataNotif);
+                    // set the notification for lender
+                    setNotif(mIDPeminjam, cicilanTitlePeminjam, cicilanConfirmPeminjam);
+
+                    // set the notification for borrower
+                    setNotif(mIDPendana, cicilanTitlePendana, cicilanConfirmPendana);
 
                     finish();
                 });
+    }
+
+    private void setNotif(String mID, String cicilanTitle, String cicilanConfirm) {
+        Map<String, Object> dataNotif = new HashMap<>();
+        dataNotif.put("id_user", mID);
+        dataNotif.put("notif_type", true);
+        dataNotif.put("notif_date", mCurrentDate);
+        dataNotif.put("notif_title", cicilanTitle);
+        dataNotif.put("notif_detail", cicilanConfirm);
+        mFire.collection("NOTIFIKASI")
+                .document(mIDNotif).set(dataNotif);
     }
 
     public void onClickBatalkanPembayaran(View view) {
@@ -346,7 +395,7 @@ public class SubmenuReturnActivity extends AppCompatActivity {
                             "Transfer cicilan dibatalkan!",
                             Toast.LENGTH_SHORT).show();
 
-                    // set the notification
+                    // set the notification for borrower
                     Map<String, Object> dataNotif = new HashMap<>();
                     dataNotif.put("id_user", mIDPeminjam);
                     dataNotif.put("notif_type", false);

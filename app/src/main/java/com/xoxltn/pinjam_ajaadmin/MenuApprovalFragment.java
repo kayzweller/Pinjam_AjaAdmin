@@ -46,9 +46,11 @@ public class MenuApprovalFragment extends Fragment {
         return mView;
     }
 
+    //-------------------------------------------------------------------------------------------//
+
     private void setUpRecycleView() {
         Query query = mColRef.whereEqualTo("pendanaan_status", true)
-                .orderBy("pinjaman_tanggal_req", Query.Direction.ASCENDING);
+                .orderBy("pinjaman_tanggal_req", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<ModelApproval> options = new FirestoreRecyclerOptions
                 .Builder<ModelApproval>()

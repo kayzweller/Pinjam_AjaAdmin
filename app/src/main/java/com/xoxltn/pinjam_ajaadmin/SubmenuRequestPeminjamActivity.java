@@ -206,19 +206,19 @@ public class SubmenuRequestPeminjamActivity extends AppCompatActivity {
 
             startActivity(new Intent(SubmenuRequestPeminjamActivity.this,
                     MainDashboardActivity.class));
+
+            // set the notification for borrower
+            Map<String, Object> dataNotif = new HashMap<>();
+            dataNotif.put("id_user", mIDPeminjam);
+            dataNotif.put("notif_type", false);
+            dataNotif.put("notif_date", mCurrentDate);
+            dataNotif.put("notif_title", "Pengajuan Pinjaman Dibatalkan!");
+            dataNotif.put("notif_detail", "Silahkan cek dan upload ulang data Profil Anda," +
+                    " sebelum mengajukan permintaan pinjaman kembali.");
+            mFire.collection("NOTIFIKASI").document(mIDNotif).set(dataNotif);
+
             finish();
         });
-
-        // set the notification
-        Map<String, Object> dataNotif = new HashMap<>();
-        dataNotif.put("id_user", mIDPeminjam);
-        dataNotif.put("notif_type", false);
-        dataNotif.put("notif_title", "Pengajuan Pinjaman Dibatalkan!");
-        dataNotif.put("notif_detail", "Silahkan cek dan upload ulang data Profil Anda, " +
-                "sebelum mengajukan permintaan pinjaman kembali.");
-        dataNotif.put("notif_date", mCurrentDate);
-
-        mFire.collection("NOTIFIKASI").document(mIDNotif).set(dataNotif);
     }
 
     //-------------------------------------------------------------------------------------------//

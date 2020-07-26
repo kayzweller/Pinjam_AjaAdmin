@@ -45,7 +45,8 @@ public class MenuRequestFragment extends Fragment {
         Query query = mColRef.whereEqualTo("pendanaan_submit", true)
                 .orderBy("pinjaman_tanggal_req", Query.Direction.ASCENDING);
 
-        FirestoreRecyclerOptions<ModelRequest> options = new FirestoreRecyclerOptions.Builder<ModelRequest>()
+        FirestoreRecyclerOptions<ModelRequest> options = new FirestoreRecyclerOptions
+                .Builder<ModelRequest>()
                 .setQuery(query, ModelRequest.class)
                 .build();
 

@@ -340,7 +340,7 @@
                             <TextView
                                 android:fontFamily="@font/fira_sans_bold_italic"
                                 android:padding="3dp"
-                                android:text="Pokok (+20%)"
+                                android:text="Cicilan Pokok (+20%)"
                                 android:textColor="@color/unselected" />
 
                             <TextView

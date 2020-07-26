@@ -98,17 +98,17 @@ public class SubmenuRequestActivity extends AppCompatActivity {
         switch (mNominal_pinjam) {
             case 500000:
                 mTextBesarPinjaman.setText(R.string.pinjam_500k);
-                String set1 = "Rp. 575.000,-";
+                String set1 = "Rp. 600.000,-";
                 mTextBesarKembali.setText(set1);
                 break;
             case 1000000:
                 mTextBesarPinjaman.setText(R.string.pinjam_1000k);
-                String set2 = "Rp. 1.150.000,-";
+                String set2 = "Rp. 1.200.000,-";
                 mTextBesarKembali.setText(set2);
                 break;
             case 1500000:
                 mTextBesarPinjaman.setText(R.string.pinjam_1500k);
-                String set3 = "Rp. 1.725.000,-";
+                String set3 = "Rp. 1.800.000,-";
                 mTextBesarKembali.setText(set3);
                 break;
         }
