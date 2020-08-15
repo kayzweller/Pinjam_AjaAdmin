@@ -1,5 +1,5 @@
 # Pinjam_AjaAdmin
-Pair-2-Pair Lending Aplication [ADMIN SIDE] for my undergraduated thesis
+Pair-2-Pair Lending Aplication [ADMIN SIDE] for my undergraduated thesis project
 
 You can contact me via email for admin login access here :
 kayzweller[at]gmail.com
